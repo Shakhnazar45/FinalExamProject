@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrin-to-fit=no">
+    <title>{%block title%} Maliby {%endblock title%}</title>
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="icon" href="{%static 'images/2.jpg'%}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+{% endblock head %}
+<body>
+{%block header%}
+    <header class="header"id="header" style="display: flex; align-items: center; width: auto;">
+        <ul style="display: flex; width: 900px; height: 40px; list-style: none;">
+            <li style="margin: 10px; margin-left: 120px;">Almaty city</li>
+            <li style="margin: 10px; margin-left: 120px;">Gagarina 35 pr.</li>
+            <li style="margin: 10px; margin-left: 120px;">+7 727 548 75 42</li>
+        </ul>
+        <div class="nav" style="margin-left: auto; display: flex;">
+            {% if user.is_authenticated %}
+                {% url 'profile' as profile_url %}
+                <p style="margin-top :20px;margin-left: 5px;">{%if request.path == profile_url%} {{user.email}}{%else%} <a href="{% url 'profile' %}">{{user.email}}</a>{%endif%}</p>
+                <a style="margin-top :20px;margin-left: 5px; color:black;"href="{%url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{%url 'login'%}" title="Enter"><button class = "btn" style="width: 40px; height: 40px; margin: 10px;"><img src="{%static 'images/arrow-right-square-fill.svg'%}" alt="" ></button></a>
+            {% endif %}
+            <a href="#popup" title="Registration"><button class = "btn" style="width: 40px; height: 40px; margin: 10px;"><img src="{% static 'images/door-open-fill.svg'%}" alt=""   ></button></a>
+            <a href="{% url 'Cart'%}" title="Cart"><button class = "btn" style="width: 10px; height: 10px; margin: 10px;"> <img style="height:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </button></a>
+        </div>
+        {%endblock header%}
+    </header>
+
+
+{%block content%}
+    <div class="LogoNav" >
+        <img src="{% static 'images/Malibu-Emblem.png' %}" alt="" width="250" height="150" class = "logoPng">
+        <section class="menu">
+            <ul class = "LinkMenu">
+                <a href="{% url 'test' %}" class="link" style="text-decoration: underline; text-decoration-color: red;">Home</a>
+                {%if user.is_staff%}
+                    <a href="{% url 'Products' %}" class="link">Products</a>
+                {%else%}
+                    <a href="{% url 'aboutUs' %}" class="link">About Us</a>
+                {%endif%}
+                <a href="{% url 'contact' %}" class="link">Contact</a>
+            </ul>
+
+            <!-- <audio autoplay loop src="Audio/webAudio.mp3.mp3"></audio> -->
+        </section>
+    </div>
+
+    <div class="Center">
+        <div class="centerMenu">
+            <nav>
+                <ul>
+                    <li class = "centerLi">Market</li>
+                    <li class = "centerLi"><a href="{% url 'Rum' %}">Rum</a></li>
+                    <li class = "centerLi"><a href="{% url 'WhiteWine' %}">White Wine</a></li>
+                    <li class = "centerLi"><a href="{% url 'RedWine' %}">Red wine</a></li>
+                    <li class = "centerLi"><a href="{% url 'SparklingWine' %}">Sparkling wine</a></li>
+                    <li class = "centerLi"><a href="{% url 'PinkWine' %}">Pink wine</a></li>
+                    <li class = "centerLi"><a href="{% url 'Champagne' %}">Champagne</a></li>
+                    <li class = "centerLi"><a href="{% url 'Cognac' %}">Cognac</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="centerPng"></div>
+    </div>
+    <div class="container mb-1">
+        <div class="menu m-auto mt-5 d-flex flex-wrap">
+            <h4>The best choice</h4>
+            <div class="row row-cols-1 row-cols-md-4 mb-3 text-center mt-3 m-3">
+                {%for re in red %}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ re.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'PinkWine' %}">{{re.name}}</a>
+                        <span class = "mt-2 m-3">{{re.price}}$  <img style="height:20px;margin-left:10px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+
+                </div>
+                {%endfor%}
+    {%for red in redd %}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ red.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'RedWine' %}">{{red.name}}</a>
+                        <span class = "mt-2 m-3">{{red.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+                    {%for rum in rumm %}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ rum.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'Rum' %}">{{rum.name}}</a>
+                        <span class = "mt-2 m-2">{{rum.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+                    {%for cog in cogn %}
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-body">
+                        <img src="{{ cog.url.url }}" alt="">
+                      </div>
+                      <div class="card-header py-3">
+                        <a href="{% url 'Cognac'%}">{{cog.name}}</a>
+                        <span class = "mt-2 m-2">{{cog.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                    </div>
+                </div>
+                 {%endfor%}
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-3">
+        <div class="menu m-auto mt-5 d-flex flex-wrap">
+
+                <h4>Most popular</h4>
+         <div class="row row-cols-1 row-cols-md-4 mb-3 text-center mt-3 m-3">
+                {%for pin in pink%}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ pin.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'PinkWine'%}">{{pin.name}}</a>
+                        <span class = "mt-2 m-3">{{pin.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+
+                {%for pin in reddd%}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ pin.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'RedWine'%}">{{pin.name}}</a>
+                        <span class = "mt-2 m-3">{{pin.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+
+                  {%for pin in rummm%}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ pin.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'Rum'%}">{{pin.name}}</a>
+                        <span class = "mt-2 m-3">{{pin.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+
+                {%for pin in cognn %}
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-body">
+                      <img src="{{ pin.url.url }}" alt="">
+                    </div>
+                    <div class="card-header py-3">
+                        <a href="{% url 'Cognac'%}">{{pin.name}}</a>
+                        <span class = "mt-2 m-3">{{pin.price}}$ <img style="height:20px;margin-left:10px;width:20px;" src="{% static 'svg/shopping_cart.png'%}" alt=""> </span>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img style="margin-left:40px;" src="{%static 'images/mostpopular3.jpg'%}" class="center-block w-80" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img style="margin-left:40px;" src="{%static 'images/mostpopular7.png'%}" class="d-block w-80" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img style="margin-left:40px;"src="{%static 'images/mostpopular5.jpg'%}" class="d-block w-80" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+{% endblock content %}
+
+
+        {%block footer%}
+    <footer style="margin-top:300px;" class = "footer">
+        <ul>
+            <a href="{%url 'aboutUs'%}">About Us</a>
+            <a href="{%url 'test'%}">Home</a>
+            <a href="{%url 'contact'%}">Information</a>
+        </ul>
+        <ul>
+            <img src="{%static 'images/2.jpg'%}" alt="">
+            <div>
+                <p>Follow us on social networks</p>
+                <section>
+                    <img src="{%static 'svg/twitter.png'%}" alt="">
+                    <img src="{%static  'svg/instacolor.svg'%}" alt="">
+                    <img src="{%static 'svg/facebookCOLOR.svg'%}" alt="">
+                </section>
+            </div>
+            <div class = "FootDiv">
+                <p>+7 574 389 5788</p>
+                <p>+7 574 389 5788</p>
+            </div>
+        </ul>
+    </footer>
+
+        {%endblock footer%}
+    <div class="popup" id="popup">
+        <div class="popup__body">
+            <a href="#header">X</a>
+            <div class="popup__content">
+                <div class="popup__text">
+                    <div>
+                        <p>Name</p>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <p>Surname</p>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <p>Email</p>
+                        <input type="email">
+                    </div>
+                    <div>
+                        <p>Password</p>
+                        <input type="password">
+                    </div>
+                    <div>
+                        <p>Repeat password</p>
+                        <input type="password">
+                    </div>
+                </div>
+            </div>
+                <button class="popup__btn">Registration</button>
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        if(innerWidth <= 1280){
+            $('.card-header a').css('font-size', '14px');
+            $('footer ul div').css('margin-left', '205px');
+            $('footer .FootDiv').css('margin-left', '225px');
+        }
+        if(innerWidth <= 1200){
+            $('footer ul div').css('margin-left', '180px');
+            $('footer .FootDiv').css('margin-left', '195px');
+        }
+        if(innerWidth <= 1024){
+            $('.Center').css('height', '380px');
+            $('.Center .centerPng').css('height', '380px');
+            $('.Center .centerMenu').css('height', '380px');
+            $('.Center .centerMenu nav').css('margin-top', '60px');
+            $('.menu .col').css('height', '320px');
+            $('.menu .col .card').css('height', '320px');
+            $('.menu .col .card .card-body').css('height', '210px');
+            $('.menu .col .card .card-body img').css('height', '170px');
+            $('.menu .col .card .card-header').css('height', '80px').css('padding-left', '0').css('padding-right', '0');
+            $('.menu .col .card .card-header a').css('font-size', '13px');
+            $('.carousel-inner').css('height', '430px');
+            $('.carousel-inner .carousel-item').css('height', '430px');
+            $('footer').css('margin-top', '85px');
+            $('footer ul a').css('margin-left', '120px');
+            $('footer ul img').css('margin-left', '85px');
+            $('footer ul div section img').css('margin-left', '10px').css('margin-right', '10px');
+            $('footer ul div').css('margin-left', '140px');
+        }
+    });
+</script>
+<style>
+    .popup{
+            width: 100vw;
+            height: 100vh;
+            background: rgba(85, 85, 85, 0.671);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            visibility: hidden;
+        }
+        .popup__body{
+            width: 800px;
+            height: 500px;
+            background: #fff;
+            box-shadow: 0 0 10px #fff;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .close{
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 40px;
+            color: #000;
+        }
+        .popup__body a{
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 20px;
+            color: #000;
+        }
+        .popup__content{
+            width: 100%;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .popup__text{
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .popup__text div{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .popup__text div p{
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .popup__btn{
+            width: 125px;
+            height: 45px;
+            background: #ffa500;
+            border: transparent;
+            border-radius: 10px;
+        }
+
+        #popup:target{
+            visibility: visible;
+            transform: perspective(600px) translate(0, 0) rotateX(0deg);
+            transition: all 1s ease 0s;
+            opacity: 1;
+        }
+        #header:target .popup{
+            visibility: hidden;
+            transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+            transition: all 1s ease 0s;
+            opacity: 0;
+        }
+</style>
+
+
+
+</body>
+</html>

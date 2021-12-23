@@ -1,0 +1,60 @@
+{%extends 'goodapp/test.html '%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} Contact {%endblock title%}</title>
+    <link rel="icon" href="{% static 'images/2.jpg'%}">
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+     <link rel="stylesheet" href="{%static 'css/contact.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+{% endblock head %}
+{%block content %}
+<body>
+
+    <header>
+        <a href="{%url 'test'%}"><section title = "Back"></section></a>
+    </header>
+
+    <h3>Contact Us</h3>
+    <div class="container" >
+        <table>
+            <Tbody>
+                <tr>
+                    <td>Work Phone</td>
+                    <td><img src="{% static 'svg/phone.png'%}" alt="" width="20px" height="20px">+77785485759</td>
+                </tr>
+                <tr>
+                    <td>Home Phone</td>
+                    <td><img src="{% static 'svg/phone.png'%}" alt="" width="20px" height="20px">+77275485759</td>
+                </tr>
+                <tr>
+                    <td>Our Address</td>
+                    <td><img src="{% static 'svg/address.png'%}" alt="" width="20" height="20">35 Gagarin Avenue</td>
+                </tr>
+                <tr>
+                    <td>Our Social Networks</td>
+                    <td><a href="#"><img src="{% static 'svg/facebookCOLOR.svg'%}" alt="Facebook" width="20" height="20"></a><a href="#"><img src="{%static 'svg/instacolor.svg'%}" alt="Instagram" width="20" height="20"></a><a href="#"><img src="{% static 'svg/twitter.png'%}" alt="Facebook" width="20" height="20"></a></td>
+                </tr>
+            </Tbody>
+        </table>
+        <table class = "Map">
+            <tbody>
+                <tr>
+                    <td><img src="{% static 'svg/address.png'%}" width="20" height="20" alt=""></td>
+                </tr>
+                <tr>
+                    <td><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A54f7b5dccb498b03f1d2e96ef55fc758465573caaa69be411c531491a6f6b717&amp;source=constructor" frameborder="0"></iframe></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+ {%endblock content %}
+</html>

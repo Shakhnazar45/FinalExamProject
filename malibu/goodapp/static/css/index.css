@@ -1,0 +1,268 @@
+body{
+    background-image: url(../images/bg-image.jpeg);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+footer p {
+    font-size: 17px !important;
+    text-decoration: none;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    box-shadow: 0 1px 10px #808080;
+}
+li:hover{
+    text-decoration: underline;
+    cursor:default;
+}
+.LogoNav{
+    width: 70%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0);
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+}
+.menu{
+    width: 100%;
+    height: 150px;
+}
+.LinkMenu{
+    margin-top: 20px;
+}
+.link{
+    margin: 20px;
+    color: #ffa500;
+    font-size: larger;
+    font-weight: bold;
+    font-family: "Architects Daughter script=latin rev=1";
+    text-decoration: none;
+    transition: 1s;
+}
+.link:hover{
+    color: #ff0000;
+    text-decoration: underline;
+    text-decoration-color: #00008b;
+    transition: 0.5s;
+    transform: scale(1.2);
+}
+
+.Center{
+    width: 70%;
+    height: 490px;
+    display: flex;
+    margin: auto;
+}
+.centerMenu{
+    width: 20%;
+    height: 480px;
+}
+.centerPng{
+    width: 80%;
+    height: 480px;
+    background-image: url(../images/Malibu.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.centerMenu nav ul{
+    display: inline;
+    padding: 0;
+}
+.centerMenu nav{
+    margin-top: 70px;
+}
+.centerLi{
+    list-style: none;
+    width: auto;
+    height: 40px;
+    border-bottom: 2px groove #808080;
+    border-bottom-left-radius: 15px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+.centerLi:nth-child(1){
+    list-style: none;
+    width: auto;
+    height: 40px;
+    border-bottom: 2px groove #808080;
+    border-bottom-left-radius: 15px;
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+.centerLi a{
+    color: #000;
+    text-decoration: none;
+    font-family: "Architects Daughter script=latin rev=1";
+}
+.centerLi a:hover{
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #ff0000;
+}
+.centerLi:hover{
+    font-size: large;
+    color: black;
+    transition: 0.3s;
+    text-decoration: none;
+    transform: scaleX(1.1);
+    margin-right: 10px;
+    border-bottom: 4px double #000;
+}
+.menu h4{
+    margin-left: 100px;
+    font-size: 40px;
+    font-family: "Architects Daughter script=latin rev=1";
+}
+.container{
+    height: 400px;
+}
+.card-body img{
+    width: 150px;
+    height: 200px;
+    transition: 0.7s;
+  }
+  .card-body:hover img{
+    transition: 0.7s;
+    transform: scale(1.07);
+  }
+  .card-header{
+    display: inline-flex;
+  }
+  .card-header a{
+    color: #ffa500;
+    text-decoration: none;
+    transition: 0.75s;
+  }
+  .card-header a:hover{
+    color: #000;
+    transition: 0.75s;
+  }
+
+footer{
+    height: 350px;
+    background-color: #fff;
+}
+
+footer ul:nth-child(1){
+    margin-top: 20px;
+    display: flex;
+}
+footer ul:nth-child(1) a{
+    text-decoration: none;
+    font-size: x-large;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 200px;
+    color: #000;
+}
+footer ul:nth-child(2){
+    display: flex;
+}
+
+footer ul:nth-child(2) img{
+    width: 180px;
+    height: 200px;
+    margin-left: 180px;
+    margin-top: 40px;
+}
+footer ul:nth-child(2) div{
+    margin-left: 300px;
+    margin-top: 150px;
+}
+footer ul:nth-child(2) div p{
+    color: #000;
+}
+footer ul:nth-child(2) div section{
+    display: flex;
+    margin-left: 10px;
+}
+footer ul:nth-child(2) div section img{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+footer ul:nth-child(2) .FootDiv{
+    margin-top: 10px;
+    margin-left: 320px;
+    color: #000;
+}
+.popup{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(85, 85, 85, 0.671);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            visibility: hidden;
+}
+.popup__body{
+            width: 800px;
+            height: 500px;
+            background: #fff;
+            box-shadow: 0 0 10px #fff;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+}
+.popup__body a{
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 40px;
+            color: #000;
+}
+.popup__content{
+            width: 100%;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+}
+.popup__text{
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+}
+.popup__text div{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+}
+.popup__text div p{
+            font-size: 18px;
+            font-weight: 400;
+}
+.popup__btn{
+            width: 125px;
+            height: 45px;
+            background: #ffa500;
+            border: transparent;
+}
+
+#popup:target{
+            visibility: visible;
+            transform: perspective(600px) translate(0, 0) rotateX(0deg);
+            transition: all 1s ease 0s;
+            opacity: 1;
+}
+#header:target .popup{
+            visibility: hidden;
+            transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+            transition: all 1s ease 0s;
+      opacity: 0;
+}

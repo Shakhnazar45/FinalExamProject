@@ -1,0 +1,112 @@
+body{
+    background-image: url(../images/bg-image.jpeg);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+header a section{
+    width: 50px;
+    height: 30px;
+    background-image: url(../svg/arrowBack.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 20px;
+    transition: 0.3s;
+}
+header a section:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+p{
+    text-align: center;
+    font-size: 80px;
+    font-family: "Architects Daughter script=latin rev=1";
+}
+.container{
+    height: 400px;
+    margin-top: 50px;
+}
+table{
+    margin: auto;
+}
+table p{
+    font-size: large;
+    margin: 10px;
+    font-family: "Architects Daughter script=latin rev=1";
+}
+table tr{
+    margin: 20px;
+}
+table input{
+    font-family: "Architects Daughter script=latin rev=1";
+}
+table tr:nth-child(3) button{
+    width: 55px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px groove #000;
+    font-family: "Architects Daughter script=latin rev=1";
+    transition: 0.3s;
+}
+table tr:nth-child(3) button:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    font-size: medium;
+}
+.socNet{
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+}
+.socNet ul > li{
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    list-style: none;
+}
+.socNet ul > li:nth-child(1){
+    background-image: url(../svg/FacebookBLACK.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: 0.3s;
+}
+.socNet ul > li:nth-child(1):hover{
+    background-image: url(../svg/facebookCOLOR.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.socNet ul > li:nth-child(2){
+    background-image: url(../svg/GOOGLEBLACK.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+.socNet ul > li:nth-child(2):hover{
+    background-image: url(../svg/googleColor.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.socNet ul > li:nth-child(3){
+    background-image: url(../svg/INSTABLACK.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+.socNet ul > li:nth-child(3):hover{
+    background-image: url(../svg/instacolor.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: 0.3s;
+    transform: scale(1.2);
+
+}
+.socNet nav > ul{
+    display: flex;
+}

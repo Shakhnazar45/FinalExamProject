@@ -1,0 +1,40 @@
+
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%} Products {%endblock title%}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+<a class="btn btn-success" href="{% url 'createProductPage' %}" role="button">Create a new product</a>
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price, $</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <th>{{ product.id }}</th>
+                <th><a href="{% url 'productPage' product.id %}">{{ product.name }}</a></th>
+                <th>{{ product.price }}</th>
+                <th>{{ product.category }}</th>
+                <th>
+                   <a class="btn btn-warning" href="{% url 'updateProductPage' product.id %}" role="button">Update</a>
+                   <a class="btn btn-danger" href="{% url 'deleteProductPage' product.id %}" role="button">Delete</a>
+                </th>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</body>
+</html>

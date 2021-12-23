@@ -1,0 +1,54 @@
+{%extends 'goodapp/test.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{%block head%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} Malibu {%endblock title%} </title>
+    <link rel="icon" href="{%static 'images/2.jpg'%}">
+     <link rel="stylesheet" href="{%static 'css/aboutUs.css'%}">
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+{%endblock head%}
+<body>
+
+
+{%block content%}
+<header>
+        <a href="{% url 'test' %}"><section title = "Back"></section></a>
+    </header>
+ <p>About Us</p>
+
+    <div class="container">
+        <p>
+            The Malibu online store offers various types of alcoholic drinks at affordable prices.
+             You can order online only by adding the item to your cart and completing the payment.
+             Alcohol can only be purchased from 10:00 to 21:00. Our store does not overstate the cost of goods.
+             Only those over the age of 21 can place an order on the website. The store does not sell alcoholic beverages to customers
+             have not reached the required age.
+        </p>
+        <p>Assortment of alcoholic beverages
+            The assortment of the Malibu store has a wide selection of alcohol, so everyone can easily find a drink to their taste.
+             On our site there is a convenient sorting of drinks by category. You can customize the filter to your liking and familiarize yourself with the products.
+              It is also possible to deliver alcohol by courier to the desired address, so you don't have to look for a drink throughout the city.
+            The assortment of the store contains drinks from Germany, Ireland, Georgia, Argentina, Great Britain, Armenia and many other countries.
+             There is sorting by type of alcohol and you can go directly to the section of interest. It is convenient, because you do not have to waste time on
+             inspection of unnecessary drinks.</p>
+        <p>
+            Gin is a classic English drink made from juniper berries, violet roots, almonds
+              and various spices such as coriander. The store offers drinks from Germany, Great Britain and Scotland.
+        </p>
+        <p>
+            You can also buy other drinks on the site, such as liqueur, cognac, rum, beer, tequila.
+            There are both expensive and cheap representatives in each category. Everyone can easily find
+             suitable volume and place an order.
+        </p>
+    </div>
+{%endblock content%}
+</body>
+</html>

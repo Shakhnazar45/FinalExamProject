@@ -1,0 +1,45 @@
+body{
+    background-image: url(../images/bg-image.jpeg);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+header a section{
+    width: 50px;
+    height: 20px;
+    background-image: url(../svg/arrowBack.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 20px;
+    transition: 0.3s;
+}
+header a section:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+
+p{
+    font-size: 50px;
+    font-family: "Architects Daughter script=latin rev=1";
+    text-decoration: underline;
+    text-align: center;
+}
+
+.container{
+    height: 900px;
+}
+.container p{
+    font-size: larger;
+    font-family: "Architects Daughter script=latin rev=1";
+    border: 1px dashed #000;
+}
+.container p:nth-child(1), .container p:nth-child(3){
+    width: 50%;
+    margin: 50px;
+    text-decoration: none;
+}
+.container p:nth-child(2), .container p:nth-child(4){
+    width: 50%;
+    margin: auto;
+    text-decoration: none;
+}
